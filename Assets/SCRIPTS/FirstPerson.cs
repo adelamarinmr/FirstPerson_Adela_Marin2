@@ -6,6 +6,8 @@ public class FirstPerson : MonoBehaviour
 {
     [SerializeField] private float velocidadMovimiento;
     CharacterController controller;
+    [SerializeField] private float escalaGravedad;
+    private Vector3 movimientoVertical; // para mod mi vel en caida libre y mi vel en los saltos
     
     
 
@@ -38,4 +40,14 @@ public class FirstPerson : MonoBehaviour
 
 
     }
+    private void AplicarGravedad()
+    {
+
+    }
+
+
+
+
+
+
 }
