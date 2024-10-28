@@ -9,6 +9,7 @@ public class FirstPerson : MonoBehaviour
      CharacterController controller;
     [SerializeField] private float escalaGravedad;
      private Vector3 movimientoVertical; // para mod mi vel en caida libre y mi vel en los saltos
+    [SerializeField] private float alturaSalto;
 
 
     [Header("Deteccion del suelo")]
@@ -43,10 +44,9 @@ public class FirstPerson : MonoBehaviour
             Vector3 movimiento = Quaternion.Euler(0,anguloRotacion,0)*Vector3.forward;
             controller.Move(movimiento*velocidadMovimiento*Time.deltaTime);
 
-
-            AplicarGravedad();
         }
-
+        AplicarGravedad();
+        TocoSuelo();
 
     }
     private void AplicarGravedad()
@@ -77,6 +77,14 @@ public class FirstPerson : MonoBehaviour
         Gizmos.color= Color.green;
     }
 
+
+    private void Saltar()
+    {
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
+            movimientoVertical.y= Mathf.Sqrt(-2 * escalaGravedad * alturaSalto);
+       }
+    }
 
 
 }

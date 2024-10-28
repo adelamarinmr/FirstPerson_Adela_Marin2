@@ -821,7 +821,7 @@ Transform:
   m_GameObject: {fileID: 1372671193}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0061881873, y: 0.9938107, z: 0.0776748, w: 0.079174854}
-  m_LocalPosition: {x: 6.5947766, y: 101.58966, z: 2.8824399}
+  m_LocalPosition: {x: 6.7927766, y: 101.66067, z: 0.18443991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 1377182667}
   - component: {fileID: 1377182666}
   - component: {fileID: 1377182665}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1211,7 +1211,7 @@ Transform:
   m_GameObject: {fileID: 1573575522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.98, z: -0}
+  m_LocalPosition: {x: -0, y: -0.621, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1297,14 +1297,14 @@ Transform:
   m_GameObject: {fileID: 1943789135}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011398625, y: 0.03684754, z: -0.01294484, w: -0.99917203}
-  m_LocalPosition: {x: 6.61, y: 101.02, z: 2.87}
+  m_LocalPosition: {x: 6.808, y: 101.091, z: 0.172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1573575523}
   - {fileID: 188133777}
   - {fileID: 233274220}
   - {fileID: 514815152}
-  - {fileID: 1573575523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 1.36, y: -4.207, z: 1.435}
 --- !u!143 &1943789140
@@ -1374,6 +1374,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadMovimiento: 4
   escalaGravedad: 0
+  pies: {fileID: 1573575523}
+  radioDeteccion: 0.5
+  queEsSuelo:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
