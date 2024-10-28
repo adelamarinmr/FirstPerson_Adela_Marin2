@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class FirstPerson : MonoBehaviour
 {
+    [Header("Movimiento")]
     [SerializeField] private float velocidadMovimiento;
-    CharacterController controller;
+     CharacterController controller;
     [SerializeField] private float escalaGravedad;
-    private Vector3 movimientoVertical; // para mod mi vel en caida libre y mi vel en los saltos
+     private Vector3 movimientoVertical; // para mod mi vel en caida libre y mi vel en los saltos
+
+
+    [Header("Deteccion del suelo")]
+    [SerializeField] private Transform pies;
+    [SerializeField] private float radioDeteccion;
+    [SerializeField] private LayerMask queEsSuelo;
     
     
 
@@ -27,7 +34,7 @@ public class FirstPerson : MonoBehaviour
        Vector2 input = new Vector2(h, v).normalized;
 
         //siexiste input esq rota
-        if(input.magnitude>0)
+        if(input.sqrMagnitude>0)
         { 
             //se calcula el ángulo al que tengo que rotarme en funcion de los inputs y orientacion de camara
             float anguloRotacion= Mathf.Atan2(input.x,input.y)*Mathf.Rad2Deg+Camera.main.transform.eulerAngles.y;
@@ -36,16 +43,28 @@ public class FirstPerson : MonoBehaviour
             Vector3 movimiento = Quaternion.Euler(0,anguloRotacion,0)*Vector3.forward;
             controller.Move(movimiento*velocidadMovimiento*Time.deltaTime);
 
+
+            AplicarGravedad();
         }
 
 
     }
     private void AplicarGravedad()
     {
+        // mi mov vertical en la Y va aumentandose (+=) a cierta escala por segundo
+        movimientoVertical.y += escalaGravedad * Time.deltaTime;
+
+        controller.Move(movimientoVertical*Time.deltaTime);
 
     }
 
+    private void TocoSuelo()
+    {
+        // lanzar bola de deteccion en mis pies para detectar si hay suelo
+        Physics.OverlapSphere(pies.position, radioDeteccion, queEsSuelo);
 
+
+    }
 
 
 
