@@ -48,6 +48,7 @@ public class FirstPerson : MonoBehaviour
         AplicarGravedad();
         TocoSuelo();
 
+
     }
     private void AplicarGravedad()
     {
@@ -67,6 +68,7 @@ public class FirstPerson : MonoBehaviour
         if(collsDetectados.Length>0 )
         {
             movimientoVertical.y = 0;
+            Saltar();
 
         }
     }
