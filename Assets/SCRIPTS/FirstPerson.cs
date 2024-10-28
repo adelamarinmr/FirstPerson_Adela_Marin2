@@ -61,11 +61,21 @@ public class FirstPerson : MonoBehaviour
     private void TocoSuelo()
     {
         // lanzar bola de deteccion en mis pies para detectar si hay suelo
-        Physics.OverlapSphere(pies.position, radioDeteccion, queEsSuelo);
+        Collider[] collsDetectados = Physics.OverlapSphere(pies.position, radioDeteccion, queEsSuelo);
+       
+        //si existe al menos un collider bajo mis pies...
+        if(collsDetectados.Length>0 )
+        {
+            movimientoVertical.y = 0;
 
-
+        }
     }
 
+    private void OnDrawGizmos() // sirve para dibujar cualquier figura en la escena
+    {
+        Gizmos.DrawWireSphere(pies.position, radioDeteccion);
+        Gizmos.color= Color.green;
+    }
 
 
 
