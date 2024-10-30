@@ -6,12 +6,13 @@ using UnityEngine.AI;
 public class Enemigo : MonoBehaviour
 {
     private NavMeshAgent agent;
-    [SerializeField] private GameObject player;
+    private FirstPerson player;
     // Start is called before the first frame update
     void Start()
     {
        agent = GetComponent<NavMeshAgent>();
 
+        player = GameObject.FindObjectOfType<FirstPerson>();
     }
 
     // Update is called once per frame
