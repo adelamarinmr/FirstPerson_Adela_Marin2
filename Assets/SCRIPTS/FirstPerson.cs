@@ -10,6 +10,7 @@ public class FirstPerson : MonoBehaviour
     [SerializeField] private float escalaGravedad;
      private Vector3 movimientoVertical; // para mod mi vel en caida libre y mi vel en los saltos
     [SerializeField] private float alturaSalto;
+    private Camera cam;
 
 
     [Header("Deteccion del suelo")]
@@ -25,6 +26,7 @@ public class FirstPerson : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
        controller = GetComponent<CharacterController>();
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -34,11 +36,14 @@ public class FirstPerson : MonoBehaviour
        float v =  Input.GetAxisRaw("Vertical");
        Vector2 input = new Vector2(h, v).normalized;
 
+        //
+        transform.eulerAngles= new Vector3 (0, cam.transform.eulerAngles.y, 0);
+
         //siexiste input esq rota
         if(input.sqrMagnitude>0)
         { 
             //se calcula el ángulo al que tengo que rotarme en funcion de los inputs y orientacion de camara
-            float anguloRotacion= Mathf.Atan2(input.x,input.y)*Mathf.Rad2Deg+Camera.main.transform.eulerAngles.y;
+            float anguloRotacion= Mathf.Atan2(input.x,input.y)*Mathf.Rad2Deg+cam.transform.eulerAngles.y;
             transform.eulerAngles = new Vector3(0, anguloRotacion, 0);
 
             Vector3 movimiento = Quaternion.Euler(0,anguloRotacion,0)*Vector3.forward;
