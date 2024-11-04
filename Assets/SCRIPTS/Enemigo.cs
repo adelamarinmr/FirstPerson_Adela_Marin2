@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -9,6 +10,16 @@ public class Enemigo : MonoBehaviour
     private NavMeshAgent agent;
     private FirstPerson player;
     private Animator anim;
+    private bool ventanaAbierta = false;
+
+    [SerializeField] Transform attackPoint;
+    [SerializeField] private float radioAtaque;
+    [SerializeField] private LayerMask queEsDanable;
+    [SerializeField] private float danoAtaque;
+
+    private bool danoRealizado = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +31,33 @@ public class Enemigo : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Perseguir();
+
+        if (ventanaAbierta)
+        {
+            DetectarJugador();
+        }
+
+
+    }
+
+    private void DetectarJugador()
+    {
+       Collider[] collsDetectados = Physics.OverlapSphere(attackPoint.position, radioAtaque, queEsDanable);
+         
+        if ((collsDetectados.Length>0))
+        {
+            for (int i = 0; i < collsDetectados.Length; i++)
+            {
+                collsDetectados[i].GetComponent<FirstPerson>().RecibirDano(danoAtaque);
+
+            }
+            danoRealizado = true;
+        }
+    }
+
+    private void Perseguir()
     {
         //tengo que definir cpomo destino la posición del player
         agent.SetDestination(player.transform.position);
@@ -33,7 +71,6 @@ public class Enemigo : MonoBehaviour
 
             anim.SetBool("Attack", true);
         }
-
     }
 
     #region Eventos de animacion
@@ -42,16 +79,17 @@ public class Enemigo : MonoBehaviour
         //termino de atacar, vuelvo a moverme
         agent.isStopped = false;
         anim.SetBool("Attack", false);
+        danoRealizado = false;
     }
 
     private void AbrirVentanaAtaque()
     {
-
+        ventanaAbierta = true;
     }
 
     private void CerrarVentanaAtaque()
     {
-
+        ventanaAbierta = false;
     }
     #endregion
 

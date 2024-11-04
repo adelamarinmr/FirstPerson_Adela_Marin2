@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FirstPerson : MonoBehaviour
 {
+    [SerializeField] private float vidas;
+
+
+
     [Header("Movimiento")]
     [SerializeField] private float velocidadMovimiento;
      CharacterController controller;
@@ -13,7 +17,7 @@ public class FirstPerson : MonoBehaviour
     private Camera cam;
 
 
-    [Header("Deteccion del suelo")]
+    [Header("Deteccion suelo")]
     [SerializeField] private Transform pies;
     [SerializeField] private float radioDeteccion;
     [SerializeField] private LayerMask queEsSuelo;
@@ -91,6 +95,15 @@ public class FirstPerson : MonoBehaviour
        {
             movimientoVertical.y= Mathf.Sqrt(-2 * escalaGravedad * alturaSalto);
        }
+    }
+
+    public void RecibirDano(float danoRecibido)
+    {
+        vidas -= danoRecibido;
+        if (vidas < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
