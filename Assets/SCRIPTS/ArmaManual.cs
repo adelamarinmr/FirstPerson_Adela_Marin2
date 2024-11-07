@@ -5,7 +5,8 @@ using UnityEngine;
 public class ArmaManual : MonoBehaviour
 {
 
-    [SerializeField] ParticleSystem system;
+    [SerializeField] private ParticleSystem system;
+    [SerializeField] private ArmaSO misDatos;
     // Start is called before the first frame update
     void Start()
     {
