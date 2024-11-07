@@ -16,6 +16,7 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private float radioAtaque;
     [SerializeField] private LayerMask queEsDanable;
     [SerializeField] private float danoAtaque;
+    [SerializeField] private float vidas;
     
 
 
@@ -97,10 +98,15 @@ public class Enemigo : MonoBehaviour
     #endregion
 
 
-    public void RecibirDanho()
+    public void RecibirDanho(float danhoRecibido)
     {
 
-
+        vidas-= danhoRecibido;
+        if (vidas < 0)
+        {
+            Destroy(this.gameObject);
+        }
+            
     }
 }
 
