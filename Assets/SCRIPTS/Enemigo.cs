@@ -16,6 +16,9 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private float radioAtaque;
     [SerializeField] private LayerMask queEsDanable;
     [SerializeField] private float danoAtaque;
+    
+
+
 
     private bool danoRealizado = false;
 
@@ -94,5 +97,10 @@ public class Enemigo : MonoBehaviour
     #endregion
 
 
+    public void RecibirDanho()
+    {
+
+
+    }
 }
 
