@@ -23,17 +23,17 @@ public class SistemaInteracciones : MonoBehaviour
                 interactuableActual.GetComponent<Outline>().enabled=true;
                     
             }
-            //si tenia un interactuable 
-            else if(interactuableActual)
-            {   //le apago...
-                interactuableActual.GetComponent<Outline>().enabled = false;
-
-                //Le anulo
-                interactuableActual= null;
-            }
+           
        }
-        
 
+        //si tenia un interactuable 
+        else if (interactuableActual)
+        {   //le apago...
+            interactuableActual.GetComponent<Outline>().enabled = false;
+
+            //Le anulo
+            interactuableActual = null;
+        }
 
     }
 }
