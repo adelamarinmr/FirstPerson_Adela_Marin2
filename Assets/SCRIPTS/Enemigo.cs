@@ -110,6 +110,9 @@ public class Enemigo : MonoBehaviour
 
     public void Morir()
     {
+        anim.enabled = false;
+        agent.enabled = false;
+
         CambiarEstadoHuesos(false);
     }
 
