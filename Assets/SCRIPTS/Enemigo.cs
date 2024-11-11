@@ -114,6 +114,7 @@ public class Enemigo : MonoBehaviour
         agent.enabled = false;
 
         CambiarEstadoHuesos(false);
+        Destroy(gameObject,10);
     }
 
     private void CambiarEstadoHuesos(bool estado)
