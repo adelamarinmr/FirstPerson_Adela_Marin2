@@ -31,7 +31,7 @@ public class Enemigo : MonoBehaviour
     {
        agent = GetComponent<NavMeshAgent>();
        anim =  GetComponent<Animator>();
-       GetComponentsInChildren<Rigidbody>();
+       huesos = GetComponentsInChildren<Rigidbody>();
 
         player = GameObject.FindObjectOfType<FirstPerson>();
 
