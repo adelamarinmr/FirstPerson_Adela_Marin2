@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPart : MonoBehaviour
 {
@@ -16,5 +17,11 @@ public class EnemyPart : MonoBehaviour
             mainScript.Morir();
         }
 
+    }
+
+    public void Explotar()
+    {
+        mainScript.GetComponent<Animator>().enabled = false;
+        mainScript.GetComponent<NavMeshAgent>().enabled = false;
     }
 }

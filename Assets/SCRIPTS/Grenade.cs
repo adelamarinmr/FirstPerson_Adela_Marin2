@@ -24,6 +24,7 @@ public class Grenade : MonoBehaviour
         
     }
 
+    
     void OnDestroy()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
