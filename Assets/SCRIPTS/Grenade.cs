@@ -40,6 +40,7 @@ public class Grenade : MonoBehaviour
             foreach(Collider coll in collsDetectados) 
             {
                 coll.GetComponent<EnemyPart>().Explotar();
+                coll.GetComponent<Rigidbody>().isKinematic=false;
                 coll.GetComponent<Rigidbody>().AddExplosionForce(50, transform.position, radioExplosion, 3.5f);
             } 
         }
