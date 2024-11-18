@@ -41,7 +41,7 @@ public class Grenade : MonoBehaviour
             {
                 coll.GetComponent<EnemyPart>().Explotar();
                 coll.GetComponent<Rigidbody>().isKinematic=false;
-                coll.GetComponent<Rigidbody>().AddExplosionForce(50, transform.position, radioExplosion, 3.5f);
+                coll.GetComponent<Rigidbody>().AddExplosionForce(50, transform.position, radioExplosion, 3.5f, ForceMode.Impulse);
             } 
         }
     }
