@@ -23,5 +23,6 @@ public class EnemyPart : MonoBehaviour
     {
         mainScript.GetComponent<Animator>().enabled = false;
         mainScript.GetComponent<NavMeshAgent>().enabled = false;
+        mainScript.enabled = false;
     }
 }
