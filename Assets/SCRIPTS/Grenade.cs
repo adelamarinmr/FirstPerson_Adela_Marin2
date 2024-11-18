@@ -37,7 +37,11 @@ public class Grenade : MonoBehaviour
 
         if(collsDetectados.Length > 0)
         {
-            Debug.Log("Adios enemy");
+            foreach(Collider coll in collsDetectados) 
+            {
+                coll.GetComponent<EnemyPart>().Explotar();
+                coll.GetComponent<Rigidbody>().AddExplosionForce(50, transform.position, radioExplosion, 3.5f);
+            } 
         }
     }
 }
