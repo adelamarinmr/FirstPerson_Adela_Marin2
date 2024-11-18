@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Bazooka : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject grenadePrefab;
+    [SerializeField] private Transform spawnPoint;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            Instantiate(grenadePrefab, spawnPoint.position, Quaternion.identity);
+
+        }
     }
 }
