@@ -93,7 +93,8 @@ public class Enemigo : MonoBehaviour
     private void EnfocarPlayer()
     {
         Vector3 direccionAPlayer = (player.transform.position - this.gameObject.transform.position).normalized;
-        Quaternion.LookRotation(direccionAPlayer);
+        direccionAPlayer.y= 0;
+       transform.rotation = Quaternion.LookRotation(direccionAPlayer);
     }
 
     #region Eventos de animacion
