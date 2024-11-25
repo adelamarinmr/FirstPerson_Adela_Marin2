@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Water : MonoBehaviour
 {
+    [SerializeField] private float velocidad;
 
     private Volume efecto;
     // Start is called before the first frame update
@@ -17,9 +18,13 @@ public class Water : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (efecto.profile.TryGet(out LensDistortion distorsion))
         {
-            //distorsion.xMultiplier
+            FloatParameter xValue = new FloatParameter (1+Mathf.Cos(velocidad * Time.time)/2);
+            FloatParameter yValue = new FloatParameter(1+Mathf.Sin(velocidad * Time.time)/2);
+            distorsion.xMultiplier.SetValue(xValue);
+            distorsion.yMultiplier.SetValue(yValue);
         }
     }
 }
