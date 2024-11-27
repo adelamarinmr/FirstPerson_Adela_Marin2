@@ -17,7 +17,7 @@ public class WeaponHolder : MonoBehaviour
     {
 
         CambiarArmaConTeclado();
-        CambiarArmaConRaton();
+        //CambiarArmaConRaton();
     }
 
 
@@ -49,12 +49,12 @@ public class WeaponHolder : MonoBehaviour
             CambioArma(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
         {
             CambioArma(2);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
         {
             CambioArma(3);
         }
