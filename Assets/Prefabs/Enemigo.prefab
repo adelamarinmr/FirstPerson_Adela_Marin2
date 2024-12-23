@@ -145,7 +145,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   danoAtaque: 25
-  vidas: 0
+  vidas: 100
+  timeMax: 7
+  timeMin: 4
+  sound: {fileID: 8300000, guid: a1209c2b760967c40931a51ab1937d88, type: 3}
 --- !u!95 &6398810384704868133
 Animator:
   serializedVersion: 5
@@ -186,6 +189,9 @@ MonoBehaviour:
     m_Bits: 0
   danoAtaque: 0
   vidas: 0
+  timeMax: 3
+  timeMin: 6
+  sound: {fileID: 0}
 --- !u!82 &614575536226462786
 AudioSource:
   m_ObjectHideFlags: 0
@@ -197,8 +203,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c722d41a430bb7241bedbd3c78d7f55c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.515
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -206,8 +212,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 3
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -242,7 +248,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

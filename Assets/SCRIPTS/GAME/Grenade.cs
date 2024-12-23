@@ -21,15 +21,17 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        tiempoVida-=Time.deltaTime;
+        if(tiempoVida < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     
     void OnDestroy()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-
-
 
         //que la granada detecte todos los colliders dañables en un cierto radio de explosion, incluir un if
         // un if para ver si al menos hemos dañado un collider

@@ -17,7 +17,7 @@ public class Bazooka : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(grenadePrefab, spawnPoint.position, Quaternion.identity);
+            Instantiate(grenadePrefab, spawnPoint.position, this.transform.rotation);
 
         }
     }

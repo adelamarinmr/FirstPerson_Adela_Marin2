@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -25,7 +25,18 @@ public class Enemigo : MonoBehaviour
 
     public float Vidas { get => vidas; set => vidas = value; }
 
+    [Header("SFX")]
 
+    [SerializeField] private int timeMax;
+    [SerializeField] private int timeMin;
+    private AudioSource audioEnem;
+    [SerializeField] private AudioClip sound;
+
+    private void Awake()
+    {
+        //AL PRINCIPIO COGEMOS NUESTRO AUDIOSOURCE
+        audioEnem = GetComponent<AudioSource>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +53,7 @@ public class Enemigo : MonoBehaviour
         }
 
         CambiarEstadoHuesos(true);
+        StartCoroutine(PlaySound());
     }
 
     // Update is called once per frame
@@ -65,8 +77,11 @@ public class Enemigo : MonoBehaviour
         {
             for (int i = 0; i < collsDetectados.Length; i++)
             {
-                collsDetectados[i].GetComponent<FirstPerson>().RecibirDano(danoAtaque);
-
+                if (collsDetectados[i].tag == "Player")
+                {
+                    collsDetectados[i].GetComponent<FirstPerson>().RecibirDano(danoAtaque);
+                }
+                
             }
             danoRealizado = true;
         }
@@ -132,6 +147,21 @@ public class Enemigo : MonoBehaviour
         {
             huesos[i].isKinematic = estado;
         }
+    }
+
+    private IEnumerator PlaySound()
+    {
+        while (true)
+        {
+            float auxTimer = Random.Range(timeMin, timeMax);
+            yield return new WaitForSeconds(auxTimer);
+            audioEnem.PlayOneShot(sound);
+
+            //UNA ESPERA CON UNA FUNCION VACIA PARA COMPROBAR QUE HA DEJADO DE SONAR EL RUGIDO
+            new WaitUntil(() => !audioEnem.isPlaying);
+
+        }
+
     }
 }
 

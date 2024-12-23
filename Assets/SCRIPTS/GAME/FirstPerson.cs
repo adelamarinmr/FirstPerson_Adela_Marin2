@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FirstPerson : MonoBehaviour
 {
@@ -21,8 +22,6 @@ public class FirstPerson : MonoBehaviour
     [SerializeField] private Transform pies;
     [SerializeField] private float radioDeteccion;
     [SerializeField] private LayerMask queEsSuelo;
-    
-    
 
     Vector2 input;
     // Start is called before the first frame update
@@ -56,8 +55,6 @@ public class FirstPerson : MonoBehaviour
         }
         AplicarGravedad();
         TocoSuelo();
-
-
     }
     private void AplicarGravedad()
     {
@@ -102,7 +99,8 @@ public class FirstPerson : MonoBehaviour
         vidas -= danoRecibido;
         if (vidas < 0)
         {
-            Destroy(gameObject);
+            Settings.instance.CargarNivel(2);
+
         }
     }
 
