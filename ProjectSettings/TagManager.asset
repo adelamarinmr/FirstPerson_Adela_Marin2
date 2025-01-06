@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyPart
   - "CajaMunici\xF3n"
+  - Timer
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - player
   - Enemigo
-  - 
+  - Timer
   - 
   - 
   - 

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class Muerte : MonoBehaviour
 {
-    public float timeRemaining = 30f; // Tiempo inicial en segundos
-    public Text timerText; // Referencia al componente UI Text
-    private bool isGameOver = false; // Controla si el juego terminó
+    public float timeRemaining = 3600f; // Tiempo inicial (1 hora)
+    public TextMeshProUGUI timerText; // Objeto de texto para mostrar el temporizador
+    private bool isGameOver = false; // Bandera para saber si terminó el juego
 
 
     // Start is called before the first frame update
@@ -26,21 +27,18 @@ public class Muerte : MonoBehaviour
         }
 
 
-
         if (!isGameOver)
         {
-            // Actualizar el temporizador
             if (timeRemaining > 0)
             {
-                timeRemaining -= Time.deltaTime; // Reducir el tiempo restante
-                UpdateTimerUI(); // Actualizar el texto en pantalla
+                timeRemaining -= Time.deltaTime; // Reducir tiempo restante
+                UpdateTimerUI(); // Actualizar el texto del temporizador
             }
             else
             {
-                // Cuando el tiempo se agota
                 timeRemaining = 0;
                 isGameOver = true;
-                GameOver();
+                GameOver(); // Cambiar a pantalla de Game Over
             }
         }
     }
@@ -48,7 +46,7 @@ public class Muerte : MonoBehaviour
 
 
     void UpdateTimerUI()
-    { // Actualizar el texto del temporizador en formato HH:MM:SS
+    { // Convertir el tiempo restante a formato HH:MM:SS
         int hours = Mathf.FloorToInt(timeRemaining / 3600);
         int minutes = Mathf.FloorToInt((timeRemaining % 3600) / 60);
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
