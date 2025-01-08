@@ -12,7 +12,6 @@ public class Settings : MonoBehaviour
     [Header("Canvas")]
     [SerializeField] private GameObject completeCanva;
     [SerializeField] private Slider slider;
-    private bool auxCanva=false;
 
     [Header("Musica y SFX")]
     [SerializeField] private AudioSource audioS;
@@ -73,18 +72,18 @@ public class Settings : MonoBehaviour
     public void OnOffMenu()
     {
         //BOOL AUXILIAR QUE VA CAMBIANDO CON CADA LLAMADA A LA FUNCION PARA APAGAR O ENCENDER EL OBJETO COMPLETO
-        auxCanva=!auxCanva;
-        completeCanva.SetActive(auxCanva);
+        completeCanva.SetActive(!completeCanva.activeSelf);
+
         //PONEMOS LA ESCALA DE TIEMPO A 1 o 0 DEPENDIENDO SI QUEREMOS PAUSAR O CONTINUAR EL JUEGO
-        if(auxCanva==true)
+        if(completeCanva.activeSelf)
         {
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
             Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         
 

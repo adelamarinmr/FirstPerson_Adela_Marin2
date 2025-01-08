@@ -7,7 +7,7 @@ using TMPro;
 
 public class Muerte : MonoBehaviour
 {
-    public float timeRemaining = 3600f; // Tiempo inicial (1 hora)
+    public float timeRemaining = 600; // Tiempo inicial (1 hora)
     public TextMeshProUGUI timerText; // Objeto de texto para mostrar el temporizador
     private bool isGameOver = false; // Bandera para saber si terminó el juego
 
