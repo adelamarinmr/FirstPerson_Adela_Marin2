@@ -74,17 +74,11 @@ public class Settings : MonoBehaviour
         //BOOL AUXILIAR QUE VA CAMBIANDO CON CADA LLAMADA A LA FUNCION PARA APAGAR O ENCENDER EL OBJETO COMPLETO
         completeCanva.SetActive(!completeCanva.activeSelf);
 
-        //PONEMOS LA ESCALA DE TIEMPO A 1 o 0 DEPENDIENDO SI QUEREMOS PAUSAR O CONTINUAR EL JUEGO
-        if(completeCanva.activeSelf)
-        {
-            Time.timeScale = 0;
-            //Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Time.timeScale = 1;
-            //Cursor.lockState = CursorLockMode.Locked;
-        }
+        Time.timeScale = completeCanva.activeSelf? 0f : 1f;
+
+        Cursor.lockState = completeCanva.activeSelf? CursorLockMode.None : CursorLockMode.Locked;
+
+        
         
 
     }
