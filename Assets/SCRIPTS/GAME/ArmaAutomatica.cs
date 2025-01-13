@@ -27,10 +27,7 @@ public class ArmaAutomatica : MonoBehaviour
 
         if(Input.GetMouseButton(0) && timer>= misDatos.cadenciaAtaque)
         {
-
-
-            if (Input.GetMouseButtonDown(0))
-            {
+                Debug.Log("Disparo armaAuto");
                 system.Play(); //ejecutar sistema particulas
                 if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, misDatos.distanciaAtaque))
                 {
@@ -41,9 +38,9 @@ public class ArmaAutomatica : MonoBehaviour
                         hitinfo.transform.GetComponent<EnemyPart>().RecibirDanho(misDatos.danhoAtaque);
                     }
                 }
-            }
-
             timer = 0;
         }
     }
 }
+
+// if (Input.GetMouseButton(0))

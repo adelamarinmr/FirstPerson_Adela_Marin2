@@ -36,13 +36,13 @@ public class Enemigo : MonoBehaviour
     {
         //AL PRINCIPIO COGEMOS NUESTRO AUDIOSOURCE
         audioEnem = GetComponent<AudioSource>();
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
-    {
-       agent = GetComponent<NavMeshAgent>();
-       anim =  GetComponent<Animator>();
-       huesos = GetComponentsInChildren<Rigidbody>();
+    {  
+        huesos = GetComponentsInChildren<Rigidbody>();
 
         player = GameObject.FindObjectOfType<FirstPerson>();
 

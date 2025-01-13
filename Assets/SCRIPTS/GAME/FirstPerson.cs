@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FirstPerson : MonoBehaviour
 {
     [SerializeField] private float vidas;
-
+    [SerializeField] private TMP_Text txtvida;
 
 
     [Header("Movimiento")]
@@ -35,6 +36,8 @@ public class FirstPerson : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        txtvida.SetText(vidas.ToString());
+
        float h =  Input.GetAxisRaw("Horizontal"); //h=0, h=-1, h=1
        float v =  Input.GetAxisRaw("Vertical");
        Vector2 input = new Vector2(h, v).normalized;
@@ -104,5 +107,22 @@ public class FirstPerson : MonoBehaviour
         }
     }
 
+    public void RecuperarVida(float _vida)
+    {
+        Debug.Log("Mis vidas eran: " + vidas);
+        //RECUPERAMOS VIDAS
+        vidas += _vida;
+        Debug.Log("Mis vidas son: " + vidas);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //FALTA EL NUMERO DE ESCENA DE VICTORIA
+        if(other.CompareTag("Meta"))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
 
 }

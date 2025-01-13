@@ -21,6 +21,7 @@ public class ArmaManual : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Disparo manual");
             system.Play(); //ejecutar sistema particulas
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo,misDatos.distanciaAtaque))
             {

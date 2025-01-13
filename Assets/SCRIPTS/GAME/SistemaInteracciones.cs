@@ -7,9 +7,12 @@ public class SistemaInteracciones : MonoBehaviour
     private Camera cam;
     [SerializeField] private float distanciaInteraccion;
     private Transform interactuableActual;
+    private FirstPerson fp;
+
     void Start()
     {
         cam = Camera.main;
+        fp=GetComponent<FirstPerson>();//ESTO VA EN EL AWAKE PORQUE BLA BLA
     }
 
     // Update is called once per frame
@@ -22,10 +25,14 @@ public class SistemaInteracciones : MonoBehaviour
                 interactuableActual = hit.transform;
                 interactuableActual.GetComponent<Outline>().enabled = true;
 
-
+                //CAMBIO DEL FUNCIONAMIENTO DE LA CAJA PARA QUE RECUPERES VIDA
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    scriptCaja.Abrir();
+                    bool aux = scriptCaja.Abrir();
+                    if(aux)
+                    {
+                        fp.RecuperarVida(50);
+                    }
                 }
 
             }

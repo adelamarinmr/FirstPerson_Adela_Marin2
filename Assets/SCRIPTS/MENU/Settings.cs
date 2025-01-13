@@ -76,11 +76,12 @@ public class Settings : MonoBehaviour
 
         Time.timeScale = completeCanva.activeSelf? 0f : 1f;
 
-        Cursor.lockState = completeCanva.activeSelf? CursorLockMode.None : CursorLockMode.Locked;
-
+        if(SceneManager.GetActiveScene().name!="MainMenu")
+        {
+            Cursor.lockState = completeCanva.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+        }
         
         
-
     }
 
 
