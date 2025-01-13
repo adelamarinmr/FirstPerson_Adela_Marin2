@@ -29,6 +29,11 @@ public class ArmaAutomatica : MonoBehaviour
         {
                 Debug.Log("Disparo armaAuto");
                 system.Play(); //ejecutar sistema particulas
+
+            
+
+
+
                 if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitinfo, misDatos.distanciaAtaque))
                 {
                     Debug.Log(hitinfo.transform.name);

@@ -7,7 +7,6 @@ TagManager:
   - EnemyPart
   - "CajaMunici\xF3n"
   - Timer
-  - Meta
   layers:
   - Default
   - TransparentFX

@@ -119,9 +119,9 @@ public class FirstPerson : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //FALTA EL NUMERO DE ESCENA DE VICTORIA
-        if(other.CompareTag("Meta"))
+        if(other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(3);
         }
     }
 
