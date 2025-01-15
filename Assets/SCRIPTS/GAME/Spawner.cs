@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
         {
             int auxTimer=Random.Range(timeMin,timeMax);
             yield return new WaitForSeconds(auxTimer);
-            Instantiate(enemigoPrefab, puntosSpawn[0].position, Quaternion.identity); // rotación = (0,0,0) multiplicas por la matriz identidad
+            Instantiate(enemigoPrefab, puntosSpawn[Random.Range(0,puntosSpawn.Length)].position, Quaternion.identity); // rotación = (0,0,0) multiplicas por la matriz identidad
             // saca una copia del enemy en el punto 0 con rotación 000
         }
   

@@ -1707,6 +1707,8 @@ MonoBehaviour:
   - {fileID: 530387932}
   - {fileID: 106447425}
   - {fileID: 766854766}
+  - {fileID: 1976688833}
+  - {fileID: 702470976}
   enemigoPrefab: {fileID: 2062952065998021793, guid: a9eca855ae2b0b849b6492c9f8b13972,
     type: 3}
   timeMax: 10
